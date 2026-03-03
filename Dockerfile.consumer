@@ -1,0 +1,18 @@
+# Use the lightweight Alpine Node image
+FROM node:20-alpine
+
+# Set the working directory
+WORKDIR /usr/src/app
+
+# Install dependencies
+COPY package*.json ./
+RUN npm install --omit=dev
+
+# Copy the consumer script
+COPY consumer.js .
+
+# Expose the Prometheus metrics port
+EXPOSE 3001
+
+# Start the consumer
+CMD [ "node", "consumer.js" ]

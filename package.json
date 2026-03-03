@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/MartinS984/weather-traffic-app#readme",
   "dependencies": {
-    "kafkajs": "^2.2.4"
+    "express": "^5.2.1",
+    "kafkajs": "^2.2.4",
+    "prom-client": "^15.1.3"
   }
 }
