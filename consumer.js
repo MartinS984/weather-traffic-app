@@ -51,7 +51,8 @@ const run = async () => {
       eachMessage: async ({ message }) => {
         try {
           const payload = JSON.parse(message.value.toString());
-          console.log(`📥 Processed: ${payload.sensor_id} at ${payload.timestamp}`);
+          const localTime = new Date(payload.timestamp).toLocaleString('en-GB', { timeZone: 'Europe/Skopje' });
+          console.log(`📥 Processed: ${payload.sensor_id} at ${localTime}`);
           
           // Route data to the correct Prometheus gauge
           if (payload.type === 'weather') {
